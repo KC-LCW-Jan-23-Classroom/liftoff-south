@@ -1,0 +1,234 @@
+﻿Web Development
+Group Project Expectations
+* Group Projects: 4-6 people per group
+* Feature Requirements: 3 features per group member 
+* Total features per project: 12-18 features
+Each member of the group is responsible for developing at minimum 3 features of the project. Learners may work collaboratively, however, they must be the main contributor for 3 features. LaunchCode encourages creativity in project design, and this document should be a guide for planning.  If a feature is selected that is not listed below, TAs and the Learner must meet with the CEM to get their feature approved. 
+Web development projects are required to use Java(Spring)/C#(.NET) and SQL.
+If learners are interested in utilizing a front end framework, we currently recommend React.
+Must Include
+* Full CRUD Functionality 
+* User Account Creation and Management
+* SQL Database
+* External API usage
+Additional Features List
+* Blog functionality 
+* Ability to favorite items or posts to a user account 
+* Ability to search the database
+* Contact form 
+* Ability to leave comments 
+* Mobile Responsiveness
+* Ability to purchase something on the website
+* Ability to upload a photo to the site and apply tags to it
+* Implement a review system
+* Navigation bar that adapts to user accounts
+* Ability to sign up for a rewards system
+Additional Recommended Languages or Frameworks
+* Vue.JS
+* Node.JS
+* Bootstrap / Tailwindcss
+* AWS
+* Docker
+* Expressjs
+* MongoDB
+* Angular
+
+
+Project Outline
+
+
+Project idea 1
+Copy this portion into a Google Doc for your group to update as the project progresses.
+Project Name - Fur Baby Finder
+Project Description 
+* An application that matches lifestyle qualities to a specific dog breed. Then, can link you to adoptable rescues.
+Feature List
+
+
+Distance searchability
+Gender preference
+Searchable by Age
+Searchable by Breed
+Searchable by Color
+Description of dog
+Medical history
+Photos
+Name
+Adoption status
+Payment acceptance feature for shelter donation
+Submit application feature
+Ability to “favorite” pets
+Shopping cart feature (pretend select items)
+“Sign up to volunteer” form
+
+
+
+
+Tech Stack
+DogAPI- return facts about breed
+PetFinder Adoption API - return dogs in shelter ready to be adopted.
+Stripe API for payment
+Spring Bootstrap
+Thymeleaf
+Spring boot Java
+MySQL Database
+
+
+Group Members and Work Division
+Project Links
+* GitHub:
+* Link to Project Management Platform:
+* Presentations
+   * Group Presentation
+      *  Group Project Presentation Template
+   * Individual Presentations
+      * Individual Project Presentation Template
+The project outline below is to give you an idea of what a Liftoff project can look like. It is not a project that learners can refer to on GitHub. 
+
+
+
+
+Project idea 2
+Project Name - Booze blender
+ Project Description 
+* Cocktail creator based on user input ingredients. With searchability features by cocktail name, included ingredient, or picture. 
+
+
+Feature List
+User input to find cocktails by ingredient.
+Ability to sort by spirit.
+Ability to search by glass type.
+Random cocktail generator.
+Drinking age verifier with birthday input.
+Account creation for saved cocktails
+Ability to “favorite” cocktails 
+User can create reviews for cocktails 
+Create a shopping list based on cocktail recipes.
+ Share via link cocktail recipe.
+Recommended list for partying or staying in.
+Option to link and read more about cocktail history.
+Liquor store search.
+Tech Stack
+The cocktail DB
+Google maps API
+The History of Cocktails - The Cocktail Society
+Spring Bootstrap
+Thymeleaf
+Spring boot Java
+MySQL Database
+
+
+Group Members and Work Division
+Project Links
+* GitHub:
+* Link to Project Management Platform:
+* Presentations
+   * Group Presentation
+      *  Group Project Presentation Template
+   * Individual Presentations
+      * Individual Project Presentation Template
+The project outline below is to give you an idea of what a Liftoff project can look like. It is not a project that learners can refer to on GitHub. 
+
+
+
+
+
+
+Project idea 3
+Project Name - Photo Album
+ Project Description 
+* An app to categorize photos with a fun swipe feature with ability to create albums and share
+Feature List
+User account creation
+Ability to sort pictures by date
+Swipe feature to keep or delete
+Ability to favorite images
+Ability to edit images
+Ability to share images
+Ability to categorize pictures
+Option to add filters to the picture
+Option to add text to the image
+Option to print picture
+Create a duplicate picture to edit
+Storage updated with edits
+Id of Photo
+Name of the album
+Tech Stack
+
+
+Group Members and Work Division
+Project Links
+* GitHub:
+* Link to Project Management Platform:
+* Presentations
+   * Group Presentation
+      *  Group Project Presentation Template
+   * Individual Presentations
+      * Individual Project Presentation Template
+The project outline below is to give you an idea of what a Liftoff project can look like. It is not a project that learners can refer to on GitHub. 
+
+
+
+
+
+
+
+
+
+
+________________
+Sample Project Outline
+Project Name - Get a Slice
+Project Description 
+* Our project is an online ordering platform for a local pizza company. Our group found that the current format for online pizza ordering is missing features that could lead to a better user experience, so we developed a fake pizza company to showcase what we believe to be a better website.
+Feature List
+* Customers can create and manage an account
+* Managers can adjust menu items, keep track of inventory, and mark items as on special
+* Menu items stored in an SQL database
+* Utilizes Stripe API to take user payment information 
+* Customers can favorite menu items
+* Ability to sign up for a rewards system  
+* Ability to re-order previous carts
+* Ability to use rewards points to purchase items
+* Users accounts are verified through email 
+* Users can get in touch with the shop using the Contact Us form 
+* Users can order pizza or other items on the site 
+* Users can visit a blog to see new updates for the company
+* Customers can leave comments on the blog 
+Tech Stack
+* Java and Spring for back end
+* React for front end 
+* SQL for Database 
+* Stripe API for payments 
+* Spring Bootstrap
+* Thymeleaf
+* Spring boot Java
+* MySQL Database
+Group Members and Work Division
+* Lexi
+   * Customers can create and manage an account 
+   * Users accounts are verified through email 
+   * Customers can favorite menu items
+   * Customers can leave a review for their order
+* Melinda
+   * Managers can adjust menu items, keep track of inventory, and mark items as on special
+   * Sign up for a rewards system  
+   * Users can get in touch with the shop using the Contact Us form 
+* Shaw 
+   * Utilizes Stripe API to take user payment information 
+   * Users can order pizza or other items on the site 
+   * Ability to use rewards points to purchase items
+   * Ability to re-order previous carts
+* Maggie
+   * Menu items stored in an SQL database
+   * Users can visit a blog to see new updates for the company
+   * Customers can leave comments on the blog 
+Project Links
+Github: 
+Group Presentation: 
+Individual Presentations
+* Maggie
+* Shaw
+* Melinda
+* Lexi  
+Project Management: (Utilize GitHub Projects)
