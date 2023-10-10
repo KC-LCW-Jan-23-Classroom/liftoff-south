@@ -1,4 +1,6 @@
-package main.java.org.launchcode.controllers;
+package org.launchcode.controllers;
+
 
 public class HomepageController {
 }
+
