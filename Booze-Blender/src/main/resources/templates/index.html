@@ -1,12 +1,32 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
+
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
 <head th:replace="fragments :: head">
+    <link rel="stylesheet" href="style.css" />
+    <title>Booze Blender</title>
+</head>
 
 <body>
 
-<div class="container">
-    <h1>Hello, Team!</h1>
-    <p>BootStrap has been added!</p>
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+    <h2> </h2>
+    <ul>
+        <div class="box">
+            <label for="user-inp"></label>
+            <input
+                    type="text"
+                    placeholder="Type in cocktail name:"
+                    id="user-inp"
+                    value= "";
+            /input>
+            <button id="search-btn">Search</button>
+        </div>
+        <div id="result"></div>
+    </ul>
 </div>
+
 </body>
+
 </html>
