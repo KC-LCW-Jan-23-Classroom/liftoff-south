@@ -1,4 +1,4 @@
-package main.java.org.launchcode.models;
+package org.launchcode.models;
 
 public class Profile {
 }
