@@ -1,4 +1,4 @@
-package org.launchcode.models;
+package boozeblender.models;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
