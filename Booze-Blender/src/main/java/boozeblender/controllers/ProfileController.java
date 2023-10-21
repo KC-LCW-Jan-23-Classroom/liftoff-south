@@ -1,4 +1,4 @@
-package org.launchcode.controllers;
+package boozeblender.controllers;
 
 public class ProfileController {
 }

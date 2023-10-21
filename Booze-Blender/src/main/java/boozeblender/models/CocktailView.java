@@ -1,4 +1,4 @@
-package org.launchcode.models;
+package boozeblender.models;
 
 public class CocktailView {
 }
