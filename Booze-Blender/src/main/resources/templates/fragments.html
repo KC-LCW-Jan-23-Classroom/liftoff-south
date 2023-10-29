@@ -3,10 +3,16 @@
 
 <head th:fragments="head">
 
+
+
     <!-- Bootstrap stylesheets and script -->
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
     <link th:href="@{/css/search.css}" rel="stylesheet" />
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+
+    <link rel="stylesheet" href="/css/disclaimer.css" />
+    <script src="/js/Disclaimer.js"></script>
+    <script src="/js/age-verification.js"></script>
 
     <title th:text="'Booze Blender' + ${title == null ? '' : ' :: ' + title}">Booze Blender</title>
 </head>
@@ -24,7 +30,7 @@
                 <li><a th:href="@{/}">Search by Glass</a></li>
                 <li><a th:href="@{/}">Random Cocktail Generator</a></li>
                 <li><a th:href="@{/}">Non-Alcoholic Cocktails</a></li>
-                <li><a th:href="@{/login}">Login</a></li>
+                <li><a th:href="@{user/login}">Login</a></li>
                 <li><a th:href="@{/}">Profile</a></li>
 
             </ul>
