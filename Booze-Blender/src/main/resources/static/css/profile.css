@@ -1,0 +1,168 @@
+.profile-nav, .profile-info{
+    margin-top:250px;
+}
+
+.profile-nav .user-heading {
+    background: #fbc02d;
+    color: #fff;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    padding:80px;
+    text-align: center;
+
+
+}
+
+.profile-nav .user-heading.round a  {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border: 10px solid rgba(255,255,255,0.3);
+    display: inline-block;
+    down:100%
+
+}
+
+.profile-nav .user-heading a img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    down:100%
+}
+
+.profile-nav .user-heading h1 {
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.profile-nav .user-heading p {
+    font-size: 12px;
+}
+
+.profile-nav ul {
+    margin-top: 1px;
+     list-style-type:none;
+}
+
+.profile-nav ul > li {
+    border-bottom: 1px solid #ebeae6;
+    margin-top: 0;
+    line-height: 30px;
+     list-style-type:none;
+}
+
+.profile-nav ul > li:last-child {
+    border-bottom: none;
+     list-style-type:none;
+}
+
+.profile-nav ul > li > a {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    color: #89817f;
+    border-left: 5px solid #fff;
+    border-right: 5px solid #fff;
+    border-bottom: 5px solid #fff;
+   list-style-type:none;
+}
+
+.profile-nav ul > li > a:hover, .profile-nav ul > li > a:focus, .profile-nav ul li.active  a {
+    background: #f8f7f5 !important;
+    border-left: 5px solid #fbc02d;
+    color: #89817f !important;
+  list-style-type:none;
+}
+
+.profile-nav ul > li:last-child > a:last-child {
+    border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+}
+
+.profile-nav ul > li > a > i{
+    font-size: 16px;
+    padding-right: 10px;
+    color: #bcb3aa;
+    list-style-type:none;
+}
+
+.profile-info .panel-footer ul li a {
+    color: #7a7a7a;
+}
+
+.bio-graph-heading {
+    background: #fbc02d;
+    color: #fff;
+    text-align: left;
+    font-style: italic;
+    padding: 40px 110px;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+
+.form-group {
+    width: 50%;
+    float: center;
+    margin-bottom: 10px;
+    padding:0 15px;
+}
+.panel{
+max-width:500px;
+margin:auto;
+background:white;
+padding:10px;
+family-align:left;
+
+
+}
+
+.form-group {
+    width: 50%;
+ margin-bottom: 10px;
+    padding:0 30px;
+    text-align:right;
+}
+.bio-graph-info h1{
+text-align:left;
+}
+.form-group label  {
+    width: 800px;
+    text-align:left;
+}
+.form-group {
+text-align:right;
+}
+
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 70px;
+}
+
+.centered {
+  position: absolute;
+  top:30%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.center img {
+  width: 150px;
+  border-radius: 50%;
+}
+.center {
+  position: absolute;
+  down:250%;
+   left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}

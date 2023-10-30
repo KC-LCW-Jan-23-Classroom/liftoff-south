@@ -3,38 +3,77 @@
 <head th:fragment="head">
   <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
   <link th:href="@{/css/profile.css}" rel="stylesheet" />
-
   <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
 </head>
 <body>
 <form method="post" th:action="@{/profile}">
-  <h1>Profile</h1>
-  <div class="form-group">
-    <label>UserName
-      <input type="text" th:field="${user.username}" class="form-control" />
-    </label>
-  </div>
+  <div class="container">
+    <div class="row">
 
-  <div class="form-group">
-    <label>Email
-      <input type="text"  th:field="${user.email}" class="form-control" >
-    </label>
+      <div class="profile-nav col-md-3">
+        <div class = "center">
+          <div class="panel">
 
-  </div>
+            <div class="user-heading round">
+              <a href="@{/}">
+                <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+              </a>
+              <h1 class="group-form"><span th:field="${user.username}">Name</span></h1>
+              <p class="group-form"><span th:field="${user.email}">Email Id</span></p>
+            </div>
+          </div>
 
-  <div class="form-group">
-    <label>Password
-      <input type="password" th:field="${user.password}" class="form-control" >
-    </label>
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="@{/}"><i class="fa fa-heart"></i>Favorites</a></li>
+            <li><a href="@{/}"><i class="fa fa-magnifying-glass"></i>Recently searched</a></li>
+            <li><a href="@{/}"><i class="fa fa-edit"></i>Edit profile</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="profile" >
 
-  </div>
+        <div class="centered">
+          <div class="panel-body bio-graph-info" >
+            <h1>Profile</h1>
+            <div class="group-form" >
+              <div class="form-group" style="max-width: 800px;">
+                <label>User Name:</label>
+                <input type="text" th:field="${user.username}" class="form-control" />
 
-  <div class="form-group">
-    <input type="submit" value="Save" class="btn btn-success" />
+
+              </div>
+              <div class="form-group">
+                <label>Birthday:</label>
+                <input type="password" th:field="${user.birthday}" class="form-control" />
+
+              </div>
+              <div class="form-group">
+                <label>Address:</label>
+                <input type="password" th:field="${user.address}" class="form-control" />
+
+              </div>
+
+              <div class="form-group">
+                <label>Email:</label>
+                <input type="text" th:field="${user.email}" class="form-control" />
+              </div>
+
+              <div class="form-group">
+                <label>Password:</label>
+                <input type="password" th:field="${user.Password}" class="form-control" />
+
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </form>
-
-
 </body>
 </html>
