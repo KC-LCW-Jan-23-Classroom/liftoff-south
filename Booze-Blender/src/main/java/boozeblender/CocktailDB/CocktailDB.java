@@ -1,4 +1,4 @@
-package boozeblender.CocktailDB.cocktaildb;
+package boozeblender.CocktailDB;
 
 import com.google.gson.Gson;
 
@@ -11,14 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * TheCocktailDB API client.
- * <p>
- * An open, crowd-sourced database of drinks
- * and cocktails from around the world.
- *
- * @author XXIV
- */
+
 public class CocktailDB {
 
     private static String http(String endpoint) {
@@ -73,35 +66,35 @@ public class CocktailDB {
         }
     }
 
-    /**
-     * Search cocktails by first letter.
-     *
-     * @param c Cocktails letter.
-     * @return List of {@link Cocktail}.
-     */
-    public static List<Cocktail> searchByLetter(char c) {
-        try {
-            String response = http(String.format("search.php?f=%s", c));
-            if (response != null && response.length() != 0) {
-                Gson gson = new Gson();
-                Cocktails cocktails = gson.fromJson(response, Cocktails.class);
-                if (cocktails.drinks != null && !cocktails.drinks.isEmpty()) {
-                    List<Cocktail> list = new ArrayList<>(cocktails.drinks);
-                    if (list.isEmpty()) {
-                        return null;
-                    } else {
-                        return list;
-                    }
-                } else {
-                    return null;
-                }
-            } else {
-                return null;
-            }
-        } catch (Exception ex) {
-            return null;
-        }
-    }
+//    /**
+//     * Search cocktails by first letter.
+//     *
+//     * @param c Cocktails letter.
+//     * @return List of {@link Cocktail}.
+//     */
+//    public static List<Cocktail> searchByLetter(char c) {
+//        try {
+//            String response = http(String.format("search.php?f=%s", c));
+//            if (response != null && response.length() != 0) {
+//                Gson gson = new Gson();
+//                Cocktails cocktails = gson.fromJson(response, Cocktails.class);
+//                if (cocktails.drinks != null && !cocktails.drinks.isEmpty()) {
+//                    List<Cocktail> list = new ArrayList<>(cocktails.drinks);
+//                    if (list.isEmpty()) {
+//                        return null;
+//                    } else {
+//                        return list;
+//                    }
+//                } else {
+//                    return null;
+//                }
+//            } else {
+//                return null;
+//            }
+//        } catch (Exception ex) {
+//            return null;
+//        }
+//    }
 
     /**
      * Search ingredient by name.
@@ -128,55 +121,55 @@ public class CocktailDB {
         }
     }
 
-    /**
-     * Search cocktail details by id.
-     *
-     * @param l Cocktail id.
-     * @return {@link Cocktail}.
-     */
-    public static Cocktail searchByID(Long l) {
-        try {
-            String response = http(String.format("lookup.php?i=%d", l));
-            if (response != null && response.length() != 0) {
-                Gson gson = new Gson();
-                Cocktails cocktails = gson.fromJson(response, Cocktails.class);
-                if (cocktails.drinks != null && !cocktails.drinks.isEmpty()) {
-                    return cocktails.drinks.get(0);
-                } else {
-                    return null;
-                }
-            } else {
-                return null;
-            }
-        } catch (Exception ex) {
-            return null;
-        }
-    }
-
-    /**
-     * Search ingredient by ID.
-     *
-     * @param l Ingredient ID.
-     * @return {@link Ingredient}.
-     */
-    public static Ingredient searchIngredientByID(Long l) {
-        try {
-            String response = http(String.format("lookup.php?iid=%d", l));
-            if (response != null && response.length() != 0) {
-                Gson gson = new Gson();
-                Ingredients cocktails = gson.fromJson(response, Ingredients.class);
-                if (cocktails.ingredients != null && !cocktails.ingredients.isEmpty()) {
-                    return cocktails.ingredients.get(0);
-                } else {
-                    return null;
-                }
-            } else {
-                return null;
-            }
-        } catch (Exception ex) {
-            return null;
-        }
-    }
+//    /**
+//     * Search cocktail details by id.
+//     *
+//     * @param l Cocktail id.
+//     * @return {@link Cocktail}.
+//     */
+//    public static Cocktail searchByID(Long l) {
+//        try {
+//            String response = http(String.format("lookup.php?i=%d", l));
+//            if (response != null && response.length() != 0) {
+//                Gson gson = new Gson();
+//                Cocktails cocktails = gson.fromJson(response, Cocktails.class);
+//                if (cocktails.drinks != null && !cocktails.drinks.isEmpty()) {
+//                    return cocktails.drinks.get(0);
+//                } else {
+//                    return null;
+//                }
+//            } else {
+//                return null;
+//            }
+//        } catch (Exception ex) {
+//            return null;
+//        }
+//    }
+//
+//    /**
+//     * Search ingredient by ID.
+//     *
+//     * @param l Ingredient ID.
+//     * @return {@link Ingredient}.
+//     */
+//    public static Ingredient searchIngredientByID(Long l) {
+//        try {
+//            String response = http(String.format("lookup.php?iid=%d", l));
+//            if (response != null && response.length() != 0) {
+//                Gson gson = new Gson();
+//                Ingredients cocktails = gson.fromJson(response, Ingredients.class);
+//                if (cocktails.ingredients != null && !cocktails.ingredients.isEmpty()) {
+//                    return cocktails.ingredients.get(0);
+//                } else {
+//                    return null;
+//                }
+//            } else {
+//                return null;
+//            }
+//        } catch (Exception ex) {
+//            return null;
+//        }
+//    }
 
     /**
      * Search a random cocktail.
@@ -262,35 +255,35 @@ public class CocktailDB {
         }
     }
 
-    /**
-     * Filter by Category.
-     *
-     * @param s Category name.
-     * @return List of {@link Filter}.
-     */
-    public static List<Filter> filterByCategory(String s) {
-        try {
-            String response = http(String.format("filter.php?c=%s", URLEncoder.encode(s, StandardCharsets.UTF_8.toString())));
-            if (response != null && response.length() != 0) {
-                Gson gson = new Gson();
-                FilterDrinks cocktails = gson.fromJson(response, FilterDrinks.class);
-                if (cocktails.drinks != null && !cocktails.drinks.isEmpty()) {
-                    List<Filter> list = new ArrayList<>(cocktails.drinks);
-                    if (list.isEmpty()) {
-                        return null;
-                    } else {
-                        return list;
-                    }
-                } else {
-                    return null;
-                }
-            } else {
-                return null;
-            }
-        } catch (Exception ex) {
-            return null;
-        }
-    }
+//    /**
+//     * Filter by Category.
+//     *
+//     * @param s Category name.
+//     * @return List of {@link Filter}.
+//     */
+//    public static List<Filter> filterByCategory(String s) {
+//        try {
+//            String response = http(String.format("filter.php?c=%s", URLEncoder.encode(s, StandardCharsets.UTF_8.toString())));
+//            if (response != null && response.length() != 0) {
+//                Gson gson = new Gson();
+//                FilterDrinks cocktails = gson.fromJson(response, FilterDrinks.class);
+//                if (cocktails.drinks != null && !cocktails.drinks.isEmpty()) {
+//                    List<Filter> list = new ArrayList<>(cocktails.drinks);
+//                    if (list.isEmpty()) {
+//                        return null;
+//                    } else {
+//                        return list;
+//                    }
+//                } else {
+//                    return null;
+//                }
+//            } else {
+//                return null;
+//            }
+//        } catch (Exception ex) {
+//            return null;
+//        }
+//    }
 
     /**
      * Filter by Glass.

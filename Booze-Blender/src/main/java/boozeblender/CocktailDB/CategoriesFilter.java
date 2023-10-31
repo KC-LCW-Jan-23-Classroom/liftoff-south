@@ -1,4 +1,4 @@
-package boozeblender.CocktailDB.cocktaildb;
+package boozeblender.CocktailDB;
 
 import java.util.ArrayList;
 
