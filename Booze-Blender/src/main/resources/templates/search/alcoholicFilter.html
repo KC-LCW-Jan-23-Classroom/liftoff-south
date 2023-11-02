@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:fragment="head">
+
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+    <link href="../static/css/search.css" th:href="@{/css/search.css}" rel="stylesheet" />
+
+
+</head>
+<body>
+
+<form method="post" th:action="@{/alcoholicFilter}">
+    <h1>Filter by Alcoholic or Non-Alcoholic Drinks</h1>
+<!--    <div class="form-group">-->
+<!--        <label>Select Alcoholic or Non-Alcoholic Drinks-->
+<!--            <input type="text" th:field="${search}" class="form-control" />-->
+<!--        </label>-->
+<!--        <p class="error" th:errors="${search}"></p>-->
+<!--    </div>-->
+    <input type="checkbox" id="option1" name="option1" value="Alcoholic">
+    <label for="option1"> Alcoholic Drinks</label><br>
+    <input type="checkbox" id="option2" name="option2" value="Non-Alcoholic">
+    <label for="option2"> Non-Alcoholic Drinks</label><br>
+
+
+
+    <div class="form-group">
+        <input type="submit" value="Search" class="btn btn-success" />
+    </div>
+</form>
+
+
+
+</body>
+</html>
