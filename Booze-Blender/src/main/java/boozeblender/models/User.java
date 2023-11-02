@@ -1,9 +1,10 @@
 package boozeblender.models;
 
-import javax.validation.constraints.Email;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 
 public class User {
 
@@ -11,24 +12,48 @@ public class User {
     @NotBlank(message = "Please enter a valid user name. It cannot be blank.")
     @Size(min = 5, max = 20)
     private String username;
+    @NotBlank(message = "Please enter your birth date. It cannot be blank.")
+    private int birthday;
 
-    @Email(message = "Please enter a valid email address.")
     private String email;
+
+    private String address;
     @NotBlank(message = "Password is required")
     @Size(min = 6, message = "Password must be at least 8 characters long!")
     private String password;
 
-    @NotNull(message = "Passwords do not match")
+    @NotNull(message = "Passwords do not match!")
     private String verifyPassword;
 
     public User() {
     }
 
-    public User(String username, String email, String password, String verifyPassword) {
+
+    public User(String username, int birthday, String email, String address, String password, String verifyPassword) {
         this.username = username;
+        this.birthday = birthday;
         this.email = email;
+        this.address = address;
         this.password = password;
         this.verifyPassword = verifyPassword;
+    }
+
+    public int getBirthday() {
+        return birthday;
+    }
+
+
+
+    public void setBirthday(int birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getUsername() {
@@ -48,7 +73,7 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
@@ -65,4 +90,7 @@ public class User {
             this.verifyPassword = null;
         }
     }
+
+
+
 }

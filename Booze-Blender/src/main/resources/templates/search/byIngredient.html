@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:fragment="head">
+
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+    <link href="../static/css/search.css" th:href="@{/css/search.css}" rel="stylesheet" />
+
+
+</head>
+<body>
+
+<form method="post" th:action="@{/byIngredient}">
+    <h1>Search By Ingredient</h1>
+    <div class="form-group">
+        <label>Enter Ingredient Name
+            <input type="text" th:field="${search}" class="form-control" />
+        </label>
+        <p class="error" th:errors="${search}"></p>
+    </div>
+
+
+
+    <div class="form-group">
+        <input type="submit" value="Search" class="btn btn-success" />
+    </div>
+</form>
+
+
+
+</body>
+</html>

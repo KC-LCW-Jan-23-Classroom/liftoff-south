@@ -24,7 +24,7 @@ public class UserController {
         model.addAttribute("verify", user.getVerifyPassword());
 
         if (errors.hasErrors() || !user.getPassword().equals(user.getVerifyPassword())) {
-            if (!user.getPassword().equals(user.getVerifyPassword())) model.addAttribute("errorMsg", "Passwords do not match!");
+            if (!user.getPassword().equals(user.getVerifyPassword())) model.addAttribute("errorMsg", "User/Password does not exist!");
             return "user/login";
         }
 
