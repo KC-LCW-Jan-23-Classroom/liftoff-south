@@ -8,6 +8,7 @@
 
 </head>
 <body>
+<header th:replace="fragments :: page-header"></header>
 <form method="post" th:action="@{/profile}">
   <div class="container">
     <div class="row">
@@ -28,7 +29,7 @@
           <ul class="nav nav-pills nav-stacked">
             <li><a href="@{/}"><i class="fa fa-heart"></i>Favorites</a></li>
             <li><a href="@{/}"><i class="fa fa-magnifying-glass"></i>Recently searched</a></li>
-            <li><a href="@{/}"><i class="fa fa-edit"></i>Edit profile</a></li>
+            <li><a th:href="@{/user/edit}"><i class="fa fa-edit"></i>Edit profile</a></li>
           </ul>
         </div>
       </div>

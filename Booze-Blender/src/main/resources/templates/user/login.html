@@ -9,6 +9,7 @@
 
 </head>
 <body>
+<header th:replace="fragments :: page-header"></header>
 
 <form method="post" th:action="@{/login}">
     <h1>Login form</h1>
@@ -32,7 +33,7 @@
 </form>
 
 <p>
-    <a th:href="@{user/register}">New user. Register here.</a>
+    <a th:href="@{/user/register}">New user. Register here.</a>
 
 </p>
 
