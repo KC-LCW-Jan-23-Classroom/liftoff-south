@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head th:fragment="head">
+<head th:replace="fragments :: head">
 
-    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
-    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
-    <link href="../static/css/search.css" th:href="@{/css/search.css}" rel="stylesheet" />
+
+<!--    <link href="../static/css/search.css" th:href="@{/css/search.css}" rel="stylesheet" />-->
 
 
 </head>
 <body>
-<header th:replace="fragments :: page-header"></header>
+
 <form method="post" th:action="@{/randomCocktailGenerator}">
     <h1> Generate a Random Cocktail</h1>
 <!--    <div class="form-group">-->
