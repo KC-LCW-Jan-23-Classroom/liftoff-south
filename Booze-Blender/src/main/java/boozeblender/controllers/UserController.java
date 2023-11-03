@@ -33,12 +33,8 @@ public class UserController {
 
     @GetMapping("/register")
     public String displayRegisterForm(Model model) {
-        model.addAttribute("username", "kg");
-        model.addAttribute("birthday", "0707200");
-        model.addAttribute("email", "kg@me.com");
-        model.addAttribute("password", "password");
-        model.addAttribute("confirmPassword", "password");
-// save user input
+
+        model.addAttribute(new User());
 
 
         return "user/register";
