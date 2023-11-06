@@ -1,12 +1,13 @@
 package boozeblender.models;
 
 
+import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-
-public class User {
+@Entity
+public class User extends AbstractEntity {
 
 
     @NotBlank(message = "Please enter a valid user name. It cannot be blank.")

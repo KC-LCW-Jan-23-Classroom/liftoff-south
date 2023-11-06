@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<form method="post" th:action="@{/register}">
+<form method="post" th:action="@{/register}" th:object="${user}">
 
     <h1 class="text-center">Sign up</h1>
 
@@ -33,7 +33,7 @@
         <input type="password" class="form-control" th:field="${user.verifyPassword}" placeholder="Confirm Password">
     </div>
 
-    <button type="button" class="btn btn-primary">Sign up</button>
+    <button type="submit" class="btn btn-primary">Sign up</button>
 </form>
 
 <p>
