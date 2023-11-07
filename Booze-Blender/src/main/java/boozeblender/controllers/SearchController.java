@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
 @Controller
 @RequestMapping("search")
 public class SearchController {
@@ -17,6 +22,20 @@ public class SearchController {
     public String searchByIngredient(Model model) {
         model.addAttribute(new Search());
         return "search/byIngredient";
+    }
+    @GetMapping("/byIngredientResults")
+    public String get(String uri) throws Exception {
+        HttpClient client = HttpClient.newHttpClient();
+        String url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka";
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .build();
+
+        HttpResponse<String> response =
+                client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        System.out.println(response.body());
+        return "search/byIngredientResults";
     }
 
     @PostMapping("/byIngredient")

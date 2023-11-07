@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/" lang="en" >
+<html xmlns:th="http://www.thymeleaf.org/" >
 <head th:replace="fragments :: head">
 </head>
 <body>
 
-<div th:replace="fragments :: page-header"></div>
+
+
+
 
     <form method="post" th:action="@{/register}" style="max-width:600px;">
 
@@ -32,9 +34,7 @@
 
         <div class="form-group">
                 <label>Confirm Password:</label>
-
             <input type="password" class="form-control" th:field="${user.verifyPassword}" placeholder="Confirm Password">
-
         </div>
 
 
@@ -53,6 +53,8 @@
             </div>
         </div>
     </div>
-  </div>
+</div>
+
+
 </body>
 </html>

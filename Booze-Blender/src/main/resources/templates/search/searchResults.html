@@ -10,10 +10,10 @@
 </head>
 <body>
 
-<form method="post" th:action="@{/byIngredient}">
-    <h1>Search By Ingredient</h1>
+<form method="get" th:action="@{/byIngredientResults}">
+    <h1>Enjoy your Cocktail!</h1>
     <div class="form-group">
-        <label>Enter Ingredient Name
+        <label>Your Search Results
             <input type="text" th:field="${search}" class="form-control" />
         </label>
         <p class="error" th:errors="${search}"></p>
@@ -21,9 +21,9 @@
 
 
 
-    <div class="form-group">
-        <input type="submit" value="Search" class="btn btn-success" />
-    </div>
+<!--    <div class="form-group">-->
+<!--        <input type="submit" value="Search" class="btn btn-success" />-->
+<!--    </div>-->
 </form>
 
 
