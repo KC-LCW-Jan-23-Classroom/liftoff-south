@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.sql.Date;
 
 @Entity
 public class User extends AbstractEntity {
@@ -13,14 +14,13 @@ public class User extends AbstractEntity {
     @NotBlank(message = "Please enter a valid user name. It cannot be blank.")
     @Size(min = 5, max = 20)
     private String username;
-    @NotBlank(message = "Please enter your birth date. It cannot be blank.")
-    private int birthday;
+    private Date birthday;
 
     private String email;
 
     private String address;
     @NotBlank(message = "Password is required")
-    @Size(min = 6, message = "Password must be at least 8 characters long!")
+    @Size(min = 8, message = "Password must be at least 8 characters long!")
     private String password;
 
     @NotNull(message = "Passwords do not match!")
@@ -30,7 +30,7 @@ public class User extends AbstractEntity {
     }
 
 
-    public User(String username, int birthday, String email, String address, String password, String verifyPassword) {
+    public User(String username, Date birthday, String email, String address, String password, String verifyPassword) {
         this.username = username;
         this.birthday = birthday;
         this.email = email;
@@ -39,13 +39,13 @@ public class User extends AbstractEntity {
         this.verifyPassword = verifyPassword;
     }
 
-    public int getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
 
 
-    public void setBirthday(int birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 

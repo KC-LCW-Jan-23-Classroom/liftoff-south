@@ -25,7 +25,11 @@
         </div>
         <div id="result"></div>
     </ul>
+
+    <p th:if="${user != null}" th:text="'Welcome, ' + ${user.username}"></p>
+
 </div>
+
 
 </body>
 

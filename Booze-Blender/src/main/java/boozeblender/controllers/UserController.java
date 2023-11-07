@@ -44,18 +44,16 @@ public class UserController {
 
      model.addAttribute("user", new User());
 
-
-        return "user/register";
+     return "user/register";
     }
 
     @PostMapping("/register")
-    public String processRegisterForm(@ModelAttribute User user) {
-// had to change html submit buttion to type submit for it to process. that why it wasnt submitting
-        // now i need to save the user to the database
-
-
+    public String processRegisterForm(@ModelAttribute User user, Model model) {
 
         userRepository.save(user);
+
+        model.addAttribute("user", user);
+
 
         return "index";
     }
