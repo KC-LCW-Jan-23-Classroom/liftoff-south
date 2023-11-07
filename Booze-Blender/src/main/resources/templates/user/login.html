@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head th:fragment="head">
+<head th:replace="fragments :: head">
 
-    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
-    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
-    <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet" />
+
+<!--    <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet" />-->
 
 
 </head>
 <body>
+
+<div th:replace="fragments :: page-header"></div>
 
 <form method="post" th:action="@{/login}">
     <h1>Login form</h1>
@@ -32,7 +33,7 @@
 </form>
 
 <p>
-    <a th:href="@{user/register}">New user. Register here.</a>
+    <a th:href="@{/user/register}">New user. Register here.</a>
 
 </p>
 

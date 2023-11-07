@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head th:fragment="head">
+<head th:replace="fragments :: head">
 
-    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
-    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
-    <link href="../static/css/search.css" th:href="@{/css/search.css}" rel="stylesheet" />
+
+
+<!--    <link href="../static/css/search.css" th:href="@{/css/search.css}" rel="stylesheet" />-->
 
 
 </head>
 <body>
-
+<div th:replace="fragments :: page-header"></div>
 <form method="post" th:action="@{/alcoholicFilter}">
     <h1>Filter by Alcoholic or Non-Alcoholic Drinks</h1>
 <!--    <div class="form-group">-->
