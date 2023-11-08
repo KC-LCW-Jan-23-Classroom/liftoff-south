@@ -26,7 +26,7 @@ public class SearchController {
     @GetMapping("/byIngredientResults")
     public String get(String uri) throws Exception {
         HttpClient client = HttpClient.newHttpClient();
-        String url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka";
+        String url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?i=Vodka";
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .build();
@@ -40,7 +40,7 @@ public class SearchController {
 
     @PostMapping("/byIngredient")
     public String searchByIngredient (@ModelAttribute Search search, Errors errors, Model model) {
-        return "index";
+        return "search/byIngredientResults";
     }
 
     @GetMapping("/byGlass")
