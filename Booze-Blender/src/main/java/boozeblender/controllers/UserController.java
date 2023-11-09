@@ -1,17 +1,25 @@
 package boozeblender.controllers;
 
 import boozeblender.models.User;
+import boozeblender.models.data.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping("user")
 public class UserController {
+
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("/login")
     public String displayUserLoginForm(Model model) {
@@ -31,12 +39,24 @@ public class UserController {
         return "index";
     }
 
-    @GetMapping("/register")
+ @GetMapping("/register")
     public String displayRegisterForm(Model model) {
-     model.addAttribute(new User());
 
+     model.addAttribute("user", new User());
 
-        return "user/register";
+     return "user/register";
     }
+  
+    @PostMapping("/register")
+    public String processRegisterForm(@ModelAttribute User user, Model model) {
+
+        userRepository.save(user);
+
+        model.addAttribute("user", user);
+
+
+        return "index";
+    }
+    
 
 }
