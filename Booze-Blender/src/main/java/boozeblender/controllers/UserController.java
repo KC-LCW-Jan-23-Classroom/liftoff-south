@@ -39,14 +39,14 @@ public class UserController {
         return "index";
     }
 
-    @GetMapping("/register")
+ @GetMapping("/register")
     public String displayRegisterForm(Model model) {
 
      model.addAttribute("user", new User());
 
      return "user/register";
     }
-
+  
     @PostMapping("/register")
     public String processRegisterForm(@ModelAttribute User user, Model model) {
 
@@ -57,5 +57,6 @@ public class UserController {
 
         return "index";
     }
+    
 
 }
