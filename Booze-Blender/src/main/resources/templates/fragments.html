@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
 
 <head th:fragments="head">
 
@@ -9,6 +9,8 @@
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
     <link th:href="@{/css/search.css}" rel="stylesheet" />
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="/css/disclaimer.css" />
     <script src="/js/Disclaimer.js"></script>
@@ -40,6 +42,29 @@
         </div>
     </div>
 </div>
+<footer th:fragment="footer" style="background-color: white; margin-top: 20px">
+    <div class="text-center">
+        <section class="mb-4">
+
+            <a href="#" class="btn btn-link btn-floating btn-lg text-dark m-1" style="font-size:23px;"><i class="fab fa-facebook"></i></a>
+
+
+            <a href="#" class="btn btn-link btn-floating btn-lg text-dark m-1" style="font-size:23px;"><i class="fab fa-google-plus"></i></a>
+
+
+            <a href="#" class="btn btn-link btn-floating btn-lg text-dark m-1" style="font-size:23px;"><i class="fab fa-twitter"></i></a>
+
+            <a href="#" class="btn btn-link btn-floating btn-lg text-dark m-1" style="font-size:23px;"><i class="fab fa-linkedin"></i></a>
+
+            <a href="#" class="btn btn-link btn-floating btn-lg text-dark m-1" style="font-size:23px;"><i class="fab fa-youtube"></i></a>
+        </section>
+    </div>
+    <hr class = "mb-4" >
+
+    <div class="text-center" >
+        <p>Copyright ©2023 Booze Blender</p>
+    </div>
+</footer>
 
 </body>
 </html>
