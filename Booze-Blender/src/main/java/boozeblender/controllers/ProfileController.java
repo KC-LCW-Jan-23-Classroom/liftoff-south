@@ -23,7 +23,7 @@ public class ProfileController {
     public String displayEditProfile(Model model, User user) {
 
         model.addAttribute("email", user.getEmail());
-        model.addAttribute("password", user.getPassword());
+        //model.addAttribute("password", user.getPassword());
         model.addAttribute("birthday",user.getBirthday());
         model.addAttribute("address",user.getAddress());
         return "user/edit";

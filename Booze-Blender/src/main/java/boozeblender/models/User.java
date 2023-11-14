@@ -1,6 +1,8 @@
 package boozeblender.models;
 
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -10,18 +12,18 @@ import java.sql.Date;
 @Entity
 public class User extends AbstractEntity {
 
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    @NotBlank(message = "Please enter a valid user name. It cannot be blank.")
-    @Size(min = 5, max = 20)
+    @NotNull
     private String username;
     private Date birthday;
 
     private String email;
 
     private String address;
-    @NotBlank(message = "Password is required")
-    @Size(min = 8, message = "Password must be at least 8 characters long!")
-    private String password;
+    @NotNull
+    //private String password;
+    private String pwHash;
 
     @NotNull(message = "Passwords do not match!")
     private String verifyPassword;
@@ -30,14 +32,23 @@ public class User extends AbstractEntity {
     }
 
 
-    public User(String username, Date birthday, String email, String address, String password, String verifyPassword) {
+    public User(String username,  String password) {
         this.username = username;
+        this.pwHash = encoder.encode(password);
+
+
+
+    }
+
+    public User(Date birthday, String email, String address, String verifyPassword){
         this.birthday = birthday;
         this.email = email;
         this.address = address;
-        this.password = password;
         this.verifyPassword = verifyPassword;
+
     }
+
+
 
     public Date getBirthday() {
         return birthday;
@@ -61,9 +72,9 @@ public class User extends AbstractEntity {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+//    public void setUsername(String username) {
+//        this.username = username;
+//    }
 
     public String getEmail() {
         return email;
@@ -73,25 +84,30 @@ public class User extends AbstractEntity {
         this.email = email;
     }
 
-    public String getPassword() {
-        return this.password;
-    }
+//    public String getPassword() {
+//        return this.pwHash;
+//    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
 
     public String getVerifyPassword() {
         return verifyPassword;
     }
 
-    public void setVerifyPassword(String verifyPassword) {
-        this.verifyPassword = verifyPassword;
-        if (password != null && !password.equals(verifyPassword)) {
-            this.verifyPassword = null;
-        }
+//    public void setVerifyPassword(String verifyPassword) {
+//        this.verifyPassword = verifyPassword;
+//        if (password != null && !password.equals(verifyPassword)) {
+//            this.verifyPassword = null;
+//        }
+//    }
+
+    public boolean isMatchingPassword(String password) {
+        return encoder.matches(password, pwHash);
     }
 
 
 
 }
+
