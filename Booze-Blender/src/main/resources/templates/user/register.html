@@ -33,6 +33,7 @@
     <div class="form-group">
         <label>Confirm Password:</label>
         <input type="password" class="form-control" th:field="${registerFormDTO.verifyPassword}" placeholder="Confirm Password">
+        <p class="error" th:errors="${registerFormDTO.verifyPassword}"></p>
     </div>
 
     <button type="submit" class="btn btn-primary">Sign up</button>

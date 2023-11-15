@@ -48,7 +48,7 @@ public class AuthenticationController {
 
     @GetMapping("/register")
     public String displayRegistrationForm(Model model) {
-        model.addAttribute(new RegisterFormDTO());
+        model.addAttribute("registerFormDTO", new RegisterFormDTO());
         model.addAttribute("title", "Register");
         return "user/register";
     }
@@ -83,7 +83,7 @@ public class AuthenticationController {
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
-        return "redirect:";
+        return "redirect:/";
     }
 
     @GetMapping("/login")
