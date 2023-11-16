@@ -22,17 +22,19 @@ public class User extends AbstractEntity {
     @Size(min = 3, max = 20, message = "Invalid username. Must be between 3 and 20 characters.")
     private String username;
 
+    @NotBlank
+    //private String password;
+    private String pwHash;
+    @Email
+    private String email;
 
     private Date birthday;
 
 
-    @Email
-    private String email;
 
-    private String address;
-    @NotBlank
-    //private String password;
-    private String pwHash;
+
+//    private String address;
+
 
 //    @NotNull(message="Passwords do not match")
 //    @Transient
@@ -45,17 +47,13 @@ public class User extends AbstractEntity {
     public User(String username,  String password) {
         this.username = username;
         this.pwHash = encoder.encode(password);
-
-
-
     }
 
-    public User(Date birthday, String email, String address, String verifyPassword){
-        this.birthday = birthday;
+    public User(String username, String password,  String email, Date birthday ){
+        this.username = username;
+        this.pwHash = encoder.encode(password);
         this.email = email;
-        this.address = address;
-        //this.verifyPassword = verifyPassword;
-
+        this.birthday = birthday;
     }
 
 
@@ -70,13 +68,7 @@ public class User extends AbstractEntity {
         this.birthday = birthday;
     }
 
-    public String getAddress() {
-        return address;
-    }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public String getUsername() {
         return username;
