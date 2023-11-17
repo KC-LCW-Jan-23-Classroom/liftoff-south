@@ -13,4 +13,15 @@ public class Search {
     @Size(min = 5, max = 20)
     @NotNull(message = "Please enter a valid search parameter.")
     private String searchParameter;
+
+    public String getSearchParameter() {
+        return searchParameter;
+    }
+
+    public void setSearchParameter(String searchParameter) {
+        this.searchParameter = searchParameter;
+    }
+
+
+
 }
