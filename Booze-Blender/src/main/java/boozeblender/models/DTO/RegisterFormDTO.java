@@ -3,27 +3,31 @@ package boozeblender.models.DTO;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.sql.Date;
 
 public class RegisterFormDTO extends LoginFormDTO{
 
     @NotNull(message = "Passwords do not match")
+    @NotBlank(message = "Field required!")
     private String verifyPassword;
+
     @NotNull
-    private Date birthday;
+    @NotBlank(message = "Birthday is required!")
+    private String birthday;
     @NotNull
-    @Email
+    @NotBlank(message = "Email is required!")
+    @Email(message = "Please enter a valid email.")
     private String email;
-//    @NotNull
-//    private String address;
 
 
-    public Date getBirthday() {
+
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -35,13 +39,7 @@ public class RegisterFormDTO extends LoginFormDTO{
         this.email = email;
     }
 
-//    public String getAddress() {
-//        return address;
-//    }
-//
-//    public void setAddress(String address) {
-//        this.address = address;
-//    }
+
 
 
 
