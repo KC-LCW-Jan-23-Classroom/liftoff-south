@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 @Controller
 @RequestMapping("user")
@@ -48,14 +50,42 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String processRegisterForm(@ModelAttribute User user, Model model) {
+    public String processRegisterForm(@ModelAttribute @Valid User user, Errors errors, Model model) {
 
+        //validate user is over 21
+        //validate that passwords match
+
+        String userBirthday = user.getBirthday();
+
+        LocalDate birthdate = LocalDate.parse(userBirthday);
+
+        LocalDate currentDate = LocalDate.now();
+
+        long age = ChronoUnit.YEARS.between(birthdate, currentDate);
+
+        if (age < 21 ) {
+            errors.rejectValue("birthday", "","You must be 21 or older to sign up!" );
+            return "user/register";
+        }
+
+
+        //check if user already exist when signing up
+
+
+
+        // validation for fields
+        if (errors.hasErrors()) {
+            return "user/register";
+        }
+
+
+        // saving the user after validating email, username, and age and when field requirements are met
         userRepository.save(user);
 
         model.addAttribute("user", user);
 
 
-        return "index";
+        return "user/profile";
     }
 
 }

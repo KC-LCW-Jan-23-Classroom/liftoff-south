@@ -11,26 +11,31 @@
     <div class="form-group">
         <label>Username:</label>
         <input type="text" class="form-control" placeholder="Enter a Username" th:field="${user.username}">
+        <span th:errors="${user.username}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label>Birthday:</label>
         <input type="date" class="form-control" th:field="${user.birthday}">
+        <span th:errors="${user.birthday}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label>Email address:</label>
         <input type="email" class="form-control" placeholder="Enter your email" th:field="${user.email}">
+        <span th:errors="${user.email}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label>Password:</label>
         <input type="password" class="form-control" th:field="${user.password}" placeholder="Password">
+        <span th:errors="${user.password}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label>Confirm Password:</label>
         <input type="password" class="form-control" th:field="${user.verifyPassword}" placeholder="Confirm Password">
+        <span th:errors="${user.verifyPassword}" class="error"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Sign up</button>

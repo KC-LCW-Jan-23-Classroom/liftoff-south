@@ -2,35 +2,39 @@ package boozeblender.models;
 
 
 import javax.persistence.Entity;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.sql.Date;
 
 @Entity
 public class User extends AbstractEntity {
 
 
-    @NotBlank(message = "Please enter a valid user name. It cannot be blank.")
-    @Size(min = 5, max = 20)
+    @NotBlank(message = "Username required!")
+    @Size(min = 5, max = 20, message = "Invalid. Username must be between 5 and 12 characters long!")
     private String username;
-    private Date birthday;
 
+    @NotBlank(message = "Birthday is required!")
+
+    private String birthday;
+
+
+    @NotBlank(message = "Email is required!")
+    @Email(message = "Please enter a valid email.")
     private String email;
 
     private String address;
     @NotBlank(message = "Password is required")
-    @Size(min = 8, message = "Password must be at least 8 characters long!")
+    @Size(min = 8, max = 12, message = "Invalid. Password must be between 8 and 12 characters long!")
     private String password;
 
-    @NotNull(message = "Passwords do not match!")
+    @NotNull(message = " Invalid. Passwords do not match!")
     private String verifyPassword;
 
     public User() {
     }
 
 
-    public User(String username, Date birthday, String email, String address, String password, String verifyPassword) {
+    public User(String username, String birthday, String email, String address, String password, String verifyPassword) {
         this.username = username;
         this.birthday = birthday;
         this.email = email;
@@ -39,13 +43,13 @@ public class User extends AbstractEntity {
         this.verifyPassword = verifyPassword;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
 
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
