@@ -30,6 +30,7 @@ public class User extends AbstractEntity {
 
     private String birthday;
 
+    @Transient
     private String verifyPassword;
 
 
@@ -88,6 +89,7 @@ public class User extends AbstractEntity {
 //        this.password = password;
 //    }
 
+    @Transient
     public String getVerifyPassword() {
         return verifyPassword;
     }

@@ -8,7 +8,6 @@ public class LoginFormDTO {
 
 
     @NotNull
-    @NotBlank()
     @Size(min = 5, max = 12, message = "Invalid username. Must be between 5 and 12 characters long!")
     private String username;
 

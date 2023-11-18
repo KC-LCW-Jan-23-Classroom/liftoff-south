@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Optional;
 
 @Controller
@@ -71,19 +73,35 @@ public class AuthenticationController {
             return "user/register";
         }
 
+        String userBirthday = registerFormDTO.getBirthday();
+
+        LocalDate birthdate = LocalDate.parse(userBirthday);
+
+        LocalDate currentDate = LocalDate.now();
+
+        long age = ChronoUnit.YEARS.between(birthdate, currentDate);
+
+        if (age < 21 ) {
+            errors.rejectValue("birthday", "","You must be 21 or older to sign up!" );
+            return "user/register";
+        }
+
+
         String password = registerFormDTO.getPassword();
         String verifyPassword = registerFormDTO.getVerifyPassword();
         if (!password.equals(verifyPassword)) {
-            errors.rejectValue("verifyPassword", "passwords.mismatch", "Passwords do not match");
+            errors.rejectValue("password", "passwords.mismatch", "Passwords do not match");
             model.addAttribute("title", "Register");
             return "user/register";
         }
 
-        User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword(), registerFormDTO.getEmail(), registerFormDTO.getBirthday(), registerFormDTO.getVerifyPassword());
+        User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword(), registerFormDTO.getEmail(), registerFormDTO.getBirthday());
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
         return "redirect:/";
+        // redirect page to profile?
+
     }
 
     @GetMapping("/login")
