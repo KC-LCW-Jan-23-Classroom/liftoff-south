@@ -10,13 +10,21 @@
 </head>
 <body>
 <div th:replace="fragments :: page-header"></div>
-<form method="get" th:action="@{search/byIngredientResults}">
+<form method="post" th:action="@{search/byIngredientResults}">
     <h1>Enjoy your Cocktail!</h1>
     <div class="form-group">
         <label>Your Search Results
-<!--            <input type="text" th:field="${search}" class="form-control" />-->
+            <p th:text="${search}"> </p>
+
         </label>
+<!--        <p th:text="${response}"> </p>-->
 <!--        <p class="error" th:errors="${search}"></p>-->
+        <div class="search-results">
+            <div th:each="cocktail: ${drinksArray}" class="search-result" th:id="${cocktail.idDrink}">
+                <img th:src="${cocktail.strDrinkThumb}">
+                <h2 th:text="${cocktail.strDrink}"></h2>
+            </div>
+        </div>
     </div>
 
 
