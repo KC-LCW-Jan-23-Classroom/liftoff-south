@@ -19,7 +19,6 @@ public class User extends AbstractEntity {
 
 
     @NotBlank
-    @Size(min = 3, max = 20, message = "Invalid username. Must be between 3 and 20 characters.")
     private String username;
 
     @NotBlank
@@ -28,17 +27,12 @@ public class User extends AbstractEntity {
     @Email
     private String email;
 
-    private Date birthday;
+
+    private String birthday;
+
+    private String verifyPassword;
 
 
-
-
-//    private String address;
-
-
-//    @NotNull(message="Passwords do not match")
-//    @Transient
-//    private String verifyPassword;
 
     public User() {
     }
@@ -49,7 +43,7 @@ public class User extends AbstractEntity {
         this.pwHash = encoder.encode(password);
     }
 
-    public User(String username, String password,  String email, Date birthday ){
+    public User(String username, String password,  String email, String birthday){
         this.username = username;
         this.pwHash = encoder.encode(password);
         this.email = email;
@@ -58,13 +52,13 @@ public class User extends AbstractEntity {
 
 
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
 
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -94,16 +88,14 @@ public class User extends AbstractEntity {
 //        this.password = password;
 //    }
 
-//    public String getVerifyPassword() {
-//        return verifyPassword;
-//    }
+    public String getVerifyPassword() {
+        return verifyPassword;
+    }
 
-//    public void setVerifyPassword(String verifyPassword) {
-//        this.verifyPassword = verifyPassword;
-//        if (password != null && !password.equals(verifyPassword)) {
-//            this.verifyPassword = null;
-//        }
-//    }
+    public void setVerifyPassword(String verifyPassword) {
+        this.verifyPassword = verifyPassword;
+
+        }
 
     public boolean isMatchingPassword(String password) {
         return encoder.matches(password, pwHash);
