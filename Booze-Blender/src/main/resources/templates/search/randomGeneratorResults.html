@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+
+    <!--    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />-->
+    <!--    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>-->
+    <!--    <link href="../static/css/search.css" th:href="@{/css/search.css}" rel="stylesheet" />-->
+
+
+</head>
+<body>
+<div th:replace="fragments :: page-header"></div>
+<form method="post" th:action="@{search/randomGeneratorResults}">
+    <h1>Enjoy your Cocktail!</h1>
+    <div class="form-group">
+        <label>Your Search Results
+            <p th:text="${search}"> </p>
+
+        </label>
+        <!--        <p th:text="${response}"> </p>-->
+        <!--        <p class="error" th:errors="${search}"></p>-->
+        <div class="search-results">
+            <div th:each="cocktail: ${drinksArray}" class="search-result" th:id="${cocktail.idDrink}">
+                <img th:src="${cocktail.strDrinkThumb}">
+                <h2 th:text="${cocktail.strDrink}"></h2>
+                <p th:text="${cocktail.strIngredient1}" ></p>
+                <p th:text="${cocktail.strMeasure1}"></p>
+                <p th:text="${cocktail.strIngredient2}"></p>
+                <p th:text="${cocktail.strMeasure2}"></p>
+                <p th:text="${cocktail.strIngredient3}"></p>
+                <p th:text="${cocktail.strMeasure3}"></p>
+                <p th:text="${cocktail.strIngredient4}"></p>
+                <p th:text="${cocktail.strMeasure4}"></p>
+                <p th:text="${cocktail.strIngredient5}"></p>
+                <p th:text="${cocktail.strMeasure5}"></p>
+                <p th:text="${cocktail.strIngredient6}"></p>
+                <p th:text="${cocktail.strMeasure6}"></p>
+                <p th:text="${cocktail.strIngredient7}"></p>
+                <p th:text="${cocktail.strMeasure7}"></p>
+                <p th:text="${cocktail.strIngredient8}"></p>
+                <p th:text="${cocktail.strMeasure8}"></p>
+
+                <p th:text="${cocktail.strInstructions}"></p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</form>
+
+
+<div th:replace="fragments :: footer"></div>
+</body>
+</html>
