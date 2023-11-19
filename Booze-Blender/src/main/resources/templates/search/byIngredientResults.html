@@ -23,6 +23,7 @@
             <div th:each="cocktail: ${drinksArray}" class="search-result" th:id="${cocktail.idDrink}">
                 <img th:src="${cocktail.strDrinkThumb}">
                 <h2 th:text="${cocktail.strDrink}"></h2>
+<!--                <p th:text="${cocktail.strInstructions}"></p>-->
             </div>
         </div>
     </div>

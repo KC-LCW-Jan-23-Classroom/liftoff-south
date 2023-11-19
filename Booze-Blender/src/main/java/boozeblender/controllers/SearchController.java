@@ -129,7 +129,7 @@ public class SearchController {
         System.out.println(response.body());
         model.addAttribute("response", response.body().toString());
         model.addAttribute("search", search.getSearchParameter());
-        return "search/byIngredientResults";
+        return "search/randomGeneratorResults";
     }
 
 //    @PostMapping("/randomCocktailGenerator")
