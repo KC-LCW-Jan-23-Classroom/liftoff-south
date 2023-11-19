@@ -102,10 +102,10 @@ public class SearchController {
         return "search/randomCocktailGenerator";
     }
     @PostMapping("/randomCocktailGenerator")
-    public String searchByIngredient (@ModelAttribute Search search, Errors errors, Model model) throws IOException, InterruptedException {
+    public String randomCocktailGenerator (@ModelAttribute Search search, Errors errors, Model model) throws IOException, InterruptedException {
         if (errors.hasErrors()) {
             System.out.println(errors.getAllErrors().toString());
-            return "search/byIngredient";
+            return "search/randomCocktailGenerator";
         }
         HttpClient client = HttpClient.newHttpClient();
         String url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
