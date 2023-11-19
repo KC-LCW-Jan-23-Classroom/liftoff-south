@@ -73,6 +73,10 @@ public class SearchController {
         return "search/byIngredientResults";
     }
 
+//    @PostMapping("/byIngredient")
+//    public String searchByIngredient (@ModelAttribute Search search, Errors errors, Model model) {
+//        return "search/byIngredientResults";
+//    }
 
     @GetMapping("/byGlass")
     public String searchByGlass(Model model) {
