@@ -10,11 +10,11 @@
 </head>
 <body>
 <div th:replace="fragments :: page-header"></div>
-<form method="post" th:action="@{/byGlass}">
+<form method="post" th:action="@{/search/byGlassResults}">
     <h1>Search By Glass Type</h1>
     <div class="form-group">
         <label>Enter Glass Type
-            <input type="text" th:field="${search}" class="form-control" />
+            <input type="text" th:field="${search.searchParameter}" class="form-control" />
         </label>
         <p class="error" th:errors="${search}"></p>
     </div>
