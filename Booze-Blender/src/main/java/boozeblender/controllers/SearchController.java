@@ -88,16 +88,43 @@ public class SearchController {
     public String searchByGlass(@ModelAttribute Search search, Errors errors, Model model) {
         return "index";
     }
-
+//www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic
+//www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic
     @GetMapping("/alcoholicFilter")
     public String alcoholicFilter(Model model) {
         model.addAttribute(new Search());
         return "search/alcoholicFilter";
     }
 
-    @PostMapping("/alcoholicFilter")
-    public String alcoholicFilter (@ModelAttribute Search search, Errors errors, Model model) {
-        return "index";
+    @PostMapping("/alcoholicFilterResults")
+    public String alcoholicFilter (@ModelAttribute Search search, Errors errors, Model model) throws IOException, InterruptedException {
+        if (errors.hasErrors()) {
+            System.out.println(errors.getAllErrors().toString());
+            return "search/alcoholicFilter";
+        }
+        HttpClient client = HttpClient.newHttpClient();
+        String url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=" +search.getSearchParameter();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .build();
+
+        HttpResponse<String> response =
+                client.send(request, HttpResponse.BodyHandlers.ofString());
+        String responseString = response.body().toString();
+        // Map JSON string to an object
+        ObjectMapper mapper = new ObjectMapper();
+        Map<String,Object> map = mapper.readValue(response.body(), Map.class);
+
+        // the API returns an object containing an array with a key of "drinks".
+        // So get the value for "drinks", and cast it to an ArrayList so that we can iterate over the drinks.
+        ArrayList drinksArray = (ArrayList) map.get("drinks");
+
+        // Pass a list of drinks to the template
+        model.addAttribute("drinksArray", drinksArray);
+        System.out.println(response.body());
+        model.addAttribute("response", response.body().toString());
+        model.addAttribute("search", search.getSearchParameter());
+        return "search/alcoholicFilterResults";
     }
 
     @GetMapping("/randomCocktailGenerator")

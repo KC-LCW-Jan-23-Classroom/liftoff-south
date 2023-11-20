@@ -10,7 +10,7 @@
 </head>
 <body>
 <div th:replace="fragments :: page-header"></div>
-<form method="post" th:action="@{/alcoholicFilter}">
+<form method="post" th:action="@{/search/alcoholicFilterResults}">
     <h1>Filter by Alcoholic or Non-Alcoholic Drinks</h1>
 <!--    <div class="form-group">-->
 <!--        <label>Select Alcoholic or Non-Alcoholic Drinks-->
@@ -18,9 +18,9 @@
 <!--        </label>-->
 <!--        <p class="error" th:errors="${search}"></p>-->
 <!--    </div>-->
-    <input type="checkbox" id="option1" name="option1" value="Alcoholic">
+    <input type="checkbox" th:field="${search.searchParameter}" id="option1" name="option1" value="Alcoholic">
     <label for="option1"> Alcoholic Drinks</label><br>
-    <input type="checkbox" id="option2" name="option2" value="Non-Alcoholic">
+    <input type="checkbox" th:field="${search.searchParameter}" id="option2" name="option2" value="Non_Alcoholic">
     <label for="option2"> Non-Alcoholic Drinks</label><br>
 
 
