@@ -86,7 +86,7 @@ public class SearchController {
     public String searchByGlass(@ModelAttribute Search search, Errors errors, Model model) throws IOException, InterruptedException {
 
         if (errors.hasErrors()) {
-            System.out.println(errors.getAllErrors().toString());
+            System.out.println(errors.getAllErrors());
 
             return "search/byGlass";
         }
@@ -97,8 +97,6 @@ public class SearchController {
         String searchParameter = search.getSearchParameter();
         String encodedSearchParameter = URLEncoder.encode(searchParameter, StandardCharsets.UTF_8);
         String url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=" + encodedSearchParameter;
-        //System.out.println("Request URL: " + url);
-        //System.out.println("Search Parameters: " + search.getSearchParameter());
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .build();
@@ -107,8 +105,6 @@ public class SearchController {
                 client.send(request, HttpResponse.BodyHandlers.ofString());
 
         String responseString = response.body().toString();
-        //System.out.println("responseString.length: " + responseString.length());
-
         if (responseString.length() == 0) {
             errors.rejectValue("searchParameter", "", "Invalid input. Please try again.");
 
