@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -80,9 +82,40 @@ public class SearchController {
         return "search/byGlass";
     }
 
-    @PostMapping("/byGlass")
-    public String searchByGlass(@ModelAttribute Search search, Errors errors, Model model) {
-        return "index";
+    @PostMapping("/byGlassResults")
+    public String searchByGlass(@ModelAttribute Search search, Errors errors, Model model) throws IOException, InterruptedException {
+
+        if (errors.hasErrors()) {
+            System.out.println(errors.getAllErrors().toString());
+
+            return "search/byGlass";
+        }
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        String searchParameter = search.getSearchParameter();
+        String encodedSearchParameter = URLEncoder.encode(searchParameter, StandardCharsets.UTF_8);
+        String url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=" + encodedSearchParameter;
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .build();
+
+        HttpResponse<String> response =
+                client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        String responseString = response.body().toString();
+        ObjectMapper mapper = new ObjectMapper();
+        Map<String,Object> map = mapper.readValue(response.body(), Map.class);
+
+        ArrayList drinksArray = (ArrayList) map.get("drinks");
+
+        model.addAttribute("drinksArray", drinksArray);
+        System.out.println(response.body());
+        model.addAttribute("response", response.body().toString());
+        model.addAttribute("search", search.getSearchParameter());
+
+        return "search/byGlassResults";
+
     }
 
     @GetMapping("/alcoholicFilter")
