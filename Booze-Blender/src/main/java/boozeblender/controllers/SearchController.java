@@ -93,9 +93,12 @@ public class SearchController {
 
         HttpClient client = HttpClient.newHttpClient();
 
+
         String searchParameter = search.getSearchParameter();
         String encodedSearchParameter = URLEncoder.encode(searchParameter, StandardCharsets.UTF_8);
         String url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=" + encodedSearchParameter;
+        //System.out.println("Request URL: " + url);
+        //System.out.println("Search Parameters: " + search.getSearchParameter());
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .build();
@@ -104,6 +107,14 @@ public class SearchController {
                 client.send(request, HttpResponse.BodyHandlers.ofString());
 
         String responseString = response.body().toString();
+        //System.out.println("responseString.length: " + responseString.length());
+
+        if (responseString.length() == 0) {
+            errors.rejectValue("searchParameter", "", "Invalid input. Please try again.");
+
+            return "search/byGlass";
+        }
+
         ObjectMapper mapper = new ObjectMapper();
         Map<String,Object> map = mapper.readValue(response.body(), Map.class);
 
