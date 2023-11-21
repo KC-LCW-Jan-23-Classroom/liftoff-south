@@ -11,23 +11,30 @@
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
-    <h2> </h2>
-    <ul>
-        <div class="box">
-            <label for="user-inp"></label>
-            <input
-                    type="text"
-                    placeholder="Type in cocktail name:"
-                    id="user-inp"
-                    value= "">
+<!--    <h2> </h2>-->
+<!--    <ul>-->
+<!--        <div class="box" style="padding-top: 40px;">-->
+<!--            <label for="user-inp"></label>-->
+<!--            <input-->
+<!--                    type="text"-->
+<!--                    placeholder="Type in cocktail name:"-->
+<!--                    id="user-inp"-->
+<!--                    value= "">-->
 
-            <button id="search-btn">Search</button>
-        </div>
-        <div id="result"></div>
-    </ul>
+<!--            <button id="search-btn">Search</button>-->
+<!--        </div>-->
+<!--        <div id="result"></div>-->
+<!--    </ul>-->
 
     <p th:if="${user != null}" th:text="'Welcome, ' + ${user.username}"></p>
 
+
+<div class="container"style="font-style:oblique" >
+    <h2 class="color-change" >
+        <span class="a">Booze</span>
+        <span class="b">Blender</span>
+    </h2>
+</div>
 </div>
 
 <div th:replace="fragments :: footer"></div>

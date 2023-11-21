@@ -1,72 +1,33 @@
-{
-padding: 0;
-margins 0;
-box-sizing: border-box;
-font-family:  sans-serif;
-}
 body {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-
-height: 100vh;
-background: linear-gradient ( #5372f0 50%, #000000
-50%);
-}
-.container {
-position: absolute;
-}
-transform: translate (-50%, -50%);
-top: 50%;
-left: 50%;
-width: 120vw;
-max-width: 37.5em;
-background-color: #;
-padding: 2.8em;
-border-radius: 0.6em;
-box-shadow: 0 1em 3em rgba(2,9,38,0.25);}
-
-.search-container {
-position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  background-image:  url("../images/cocktail.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
 }
 
-.search-container input{
- display: block;
-    margin: 0 auto;
-    width:150px;
+.fixed-footer {
+  margin-top: auto;
+  width: 100%;
+  text-align: center;
 }
 
-.search-container input:focus {
-border-color: #FCF4A3;
- display: block;
-    margin: 0 auto;
-    width:150px;
+.body-content {
+    margin-top: 72px;
 }
 
-.search-container button {
-font-size: 1em;
-border-radius: 2em;
-background-color: #FCF4A3;
-border: none;
-outline: none;
-color: #FFFFFF;
+.color-change {
+   font-size: 100px;
+   color: #73C2FB;
+   padding-top: 100px;
 
+ }
 
-}
-
-.box{
-
-        display: block;
-           margin: 0 auto;
-           width:150px;
-
-}
-
-
+ h2 {
+   display: flex;
+   justify-content: space-between;
+ }
 

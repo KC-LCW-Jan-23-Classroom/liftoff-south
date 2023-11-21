@@ -4,24 +4,26 @@
 <head th:fragments="head">
 
 
-
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap stylesheets and script -->
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
     <link th:href="@{/css/search.css}" rel="stylesheet" />
+<!--    <link th:href="@{/css/login.css}" rel="stylesheet" />-->
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="/css/disclaimer.css" />
     <script src="/js/Disclaimer.js"></script>
     <script src="/js/age-verification.js"></script>
-    <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
     <title th:text="'Booze Blender' + ${title == null ? '' : ' :: ' + title}">Booze Blender</title>
 </head>
 
-<body>
+<body class="container">
 
 <div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top-center">
     <div class="container">
