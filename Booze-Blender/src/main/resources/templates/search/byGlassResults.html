@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+
+    <!--    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />-->
+    <!--    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>-->
+    <!--    <link href="../static/css/search.css" th:href="@{/css/search.css}" rel="stylesheet" />-->
+
+
+</head>
+<body>
+<div th:replace="fragments :: page-header"></div>
+<form method="post" th:action="@{search/byGlassResults}">
+    <h1>Enjoy your Cocktail!</h1>
+    <div class="form-group">
+        <label>Your Search Results
+            <p th:text="${search}"> </p>
+
+        </label>
+        <!--        <p th:text="${response}"> </p>-->
+        <!--        <p class="error" th:errors="${search}"></p>-->
+        <div class="search-results">
+            <div th:each="cocktail: ${drinksArray}" class="search-result" th:id="${cocktail.idDrink}">
+                <img th:src="${cocktail.strDrinkThumb}">
+                <h2 th:text="${cocktail.strDrink}"></h2>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</form>
+
+
+<div th:replace="fragments :: footer"></div>
+</body>
+</html>
