@@ -1,18 +1,21 @@
+
+
 form{
     margin: auto;
-    width: 20%;
+    width: 60%;
     padding: 10px;
     text-align: center;
-    background-color: white;
+    background-color: black;
 }
 
 h1 {
     margin: auto;
     width: 50%;
-    padding: 10px;
-    text-align: center;
-    background-color: white;
-}
+
+    text-align:center
+    background-color: black;
+    color: white;
+    align-items: stretch;
 
 table {
     margin: auto;
@@ -37,4 +40,33 @@ img {
       display: center;
       max-width: 100%;
       height: auto;
+}
+
+
+.search-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.search-result {
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+
+.search-result img {
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .search-result {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .search-result {
+        width: 33.3%;
+    }
 }

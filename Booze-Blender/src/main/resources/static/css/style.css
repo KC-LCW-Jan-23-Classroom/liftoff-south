@@ -28,6 +28,11 @@ body {
 
  h2 {
    display: flex;
-   justify-content: space-between;
+   justify-content: space-around;
+   align-content: space-around;
+   flex-wrap: wrap;
+   color: white;
+   font-size: 40px;
+   text-align: center;
  }
 
