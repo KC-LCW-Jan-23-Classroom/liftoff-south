@@ -5,10 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.net.URI;
@@ -75,10 +72,6 @@ public class SearchController {
         return "search/byIngredientResults";
     }
 
-//    @PostMapping("/byIngredient")
-//    public String searchByIngredient (@ModelAttribute Search search, Errors errors, Model model) {
-//        return "search/byIngredientResults";
-//    }
 
     @GetMapping("/byGlass")
     public String searchByGlass(Model model) {
@@ -86,48 +79,34 @@ public class SearchController {
         return "search/byGlass";
     }
 
-    @PostMapping("/byGlassResults")
-    public String searchByGlass(@ModelAttribute Search search, Errors errors, Model model) throws IOException, InterruptedException {
-
-        if (errors.hasErrors()) {
-            System.out.println(errors.getAllErrors());
-
-            return "search/byGlass";
-        }
-
+    @GetMapping("/byGlassResults")
+    public String searchByGlass(@RequestParam String glassType, Model model) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
 
-
-        String searchParameter = search.getSearchParameter();
-        String encodedSearchParameter = URLEncoder.encode(searchParameter, StandardCharsets.UTF_8);
+        String encodedSearchParameter = URLEncoder.encode(glassType, StandardCharsets.UTF_8);
         String url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=" + encodedSearchParameter;
+        System.out.println("Request URL: " + url);
+        System.out.println("Search Parameters: " + glassType);
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .build();
 
         HttpResponse<String> response =
                 client.send(request, HttpResponse.BodyHandlers.ofString());
-
         String responseString = response.body().toString();
-        if (responseString.length() == 0) {
-            errors.rejectValue("searchParameter", "", "Invalid input. Please try again.");
-
-            return "search/byGlass";
-        }
 
         ObjectMapper mapper = new ObjectMapper();
         Map<String,Object> map = mapper.readValue(response.body(), Map.class);
 
         ArrayList drinksArray = (ArrayList) map.get("drinks");
 
+        model.addAttribute("glassType", glassType);
         model.addAttribute("drinksArray", drinksArray);
-        System.out.println(response.body());
-        model.addAttribute("response", response.body().toString());
-        model.addAttribute("search", search.getSearchParameter());
 
         return "search/byGlassResults";
-
     }
+
+
 //www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic
 //www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic
     @GetMapping("/alcoholicFilter")

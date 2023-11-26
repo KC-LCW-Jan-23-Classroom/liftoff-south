@@ -13,15 +13,15 @@
 <form method="post" th:action="@{search/byGlassResults}">
     <h1>Enjoy your Cocktail!</h1>
     <div class="form-group">
-        <label>Your Search Results
-            <p th:text="${search}"> </p>
-
+        <label>Your Search Results:
+            <p th:text="${glassType}"> </p>
+            <!--STYLE THIS PAGE-->
         </label>
         <!--        <p th:text="${response}"> </p>-->
         <!--        <p class="error" th:errors="${search}"></p>-->
         <div class="search-results">
             <div th:each="cocktail: ${drinksArray}" class="search-result" th:id="${cocktail.idDrink}">
-                <img th:src="${cocktail.strDrinkThumb}">
+                <img class="img-fluid" th:src="${cocktail.strDrinkThumb}">
                 <h2 th:text="${cocktail.strDrink}"></h2>
             </div>
         </div>
