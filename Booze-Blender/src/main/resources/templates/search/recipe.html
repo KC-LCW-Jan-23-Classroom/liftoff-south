@@ -20,8 +20,6 @@
 
         <a th:href="@{search/recipe(cocktailId=${cocktail.idDrink})}" ></a>
 
-
-
         <h3 th:text="${cocktail.strDrink}" ></h3>
 
         <h3>Ingredients:</h3>
@@ -59,12 +57,10 @@
         <h4 th:text="${cocktail.strInstructions}"> </h4>
 
       </div>
-
     </div>
   </div>
 </div>
-</body>
-
 <div th:replace="fragments :: footer"></div>
 
+</body>
 </html>
