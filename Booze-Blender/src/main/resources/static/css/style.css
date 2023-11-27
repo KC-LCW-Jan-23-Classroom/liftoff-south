@@ -26,8 +26,26 @@ body {
 
  }
 
- h2 {
+h2 {
    display: flex;
    justify-content: space-between;
+   color: white;
  }
+
+ h3 {
+   display: flex;
+    justify-content: space-between;
+    color: white;
+ }
+
+ h4 {
+    display: flex;
+     justify-content: space-between;
+     color: white;
+  }
+  body {
+  display: flex;
+       justify-content: space-between;
+       color: white;
+  }
 
