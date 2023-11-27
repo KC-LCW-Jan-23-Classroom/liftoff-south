@@ -1,32 +1,122 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head th:replace="fragments :: head">
-
-<!--    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />-->
-<!--    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>-->
-<!--    <link href="../static/css/search.css" th:href="@{/css/search.css}" rel="stylesheet" />-->
+<head th:replace="fragments :: head"></head>
 
 
-</head>
 <body>
 <div th:replace="fragments :: page-header"></div>
-<form method="post" th:action="@{/search/byGlassResults}">
+
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>-->
+<div class="container">
+    <div class="intro">
+        <h2 class="text-center">Choose a glass:</h2>
+    </div>
+    <div class="row photos">
+
+        <div class="col-sm-6 col-md-4 col-lg-3 item">
+            <img class="img-fluid" src="https://ae01.alicdn.com/kf/Sc593d42020fe46b59ad7a567dff693ffa/Unique-Glass-Cocktail-Glass-for-Exquisite-Cocktail-Presentation-Martini-Glass.jpg">
+            <!--                <h3>Cocktail Glass</h3>-->
+            <a th:href="@{/search/byGlassResults(glassType=${'Cocktail Glass'})}">
+                <h3>Cocktail Glass</h3>
+            </a>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 item">
+            <img class="img-fluid" src="https://cdnimg.webstaurantstore.com/images/products/large/235710/2373236.jpg">
+            <a th:href="@{/search/byGlassResults(glassType=${'Old-fashioned Glass'})}">
+                <h3>Old-fashioned Glass</h3>
+            </a>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 item">
+            <img class="img-fluid" src="https://images.squarespace-cdn.com/content/v1/55687f01e4b0bd1f0f6f58fa/1601315031332-2GQQH2WPGHZVI89ODXL2/vt-whiskey-bmac-7362-Edit.jpg?format=1000w">
+            <a th:href="@{/search/byGlassResults(glassType=${'Whiskey Glass'})}">
+                <h3>Whiskey Glass</h3>
+            </a>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 item">
+            <img class="img-fluid" src="https://cb.scene7.com/is/image/Crate/ImpressionsPitcherSSS20">
+            <a th:href="@{/search/byGlassResults(glassType=${'Pitcher'})}">
+                <h3>Pitcher</h3>
+            </a>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 item">
+            <img class="img-fluid" src="https://cdnimg.webstaurantstore.com/images/products/large/488018/2486446.jpg">
+            <a th:href="@{/search/byGlassResults(glassType=${'Margarita Glass'})}">
+                <h3>Margarita Glass</h3>
+            </a>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 item">
+            <img class="img-fluid" src="https://clearancewarehouse.co/wp-content/uploads/2022/01/buy-unbreakable-martini-glass-online.jpg">
+            <a th:href="@{/search/byGlassResults(glassType=${'Martini Glass'})}">
+                <h3>Martini Glass</h3>
+            </a>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 item">
+            <img class="img-fluid" src="https://cdnimg.webstaurantstore.com/images/products/large/525242/2317524.jpg">
+            <a th:href="@{/search/byGlassResults(glassType=${'Highball Glass'})}">
+                <h3>Highball Glass</h3>
+            </a>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 item">
+            <img class="img-fluid" src="https://cb.scene7.com/is/image/Crate/BrittaOpticPunchBowl3galSHS16/$web_pdp_main_carousel_zoom_low$/220913132913/optic-3-gallon-punch-bowl.jpg">
+            <a th:href="@{/search/byGlassResults(glassType=${'Punch Bowl'})}">
+                <h3>Punch bowl</h3>
+            </a>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 item">
+            <img class="img-fluid" src="https://www.moscowmuled.com/cdn/shop/products/MM_3.png?v=1563489253">
+            <a th:href="@{/search/byGlassResults(glassType=${'Copper Mug'})}">
+                <h3>Copper Mug</h3>
+            </a>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 item">
+            <img class="img-fluid" src="https://www.webstaurantstore.com/images/products/large/547980/1984078.jpg">
+            <a th:href="@{/search/byGlassResults(glassType=${'Hurricane Glass'})}">
+                <h3>Hurricane Glass</h3>
+            </a>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 item">
+            <img class="img-fluid" src="https://cb.scene7.com/is/image/Crate/CoupeCocktailGlass5p5ozSHF17">
+            <a th:href="@{/search/byGlassResults(glassType=${'Coupe Glass'})}">
+                <h3>Coupe Glass</h3>
+            </a>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 item">
+            <img class="img-fluid" src="https://supermancooks.com/wp-content/uploads/2023/03/autumn-harvest-cocktail-featured.jpg">
+            <a th:href="@{/search/byGlassResults(glassType=${'Mason jar'})}">
+                <h3>Mason jar</h3>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!--<form method="post" th:action="@{/search/byGlassResults}">
     <h1>Search By Glass Type</h1>
     <div class="form-group">
         <label>Enter Glass Type
             <input type="text" th:field="${search.searchParameter}" class="form-control" />
-            <span class="error" th:errors="${search.searchParameter}"></span>
-
         </label>
         <p class="error" th:errors="${search}"></p>
     </div>
-
-
-
     <div class="form-group">
         <input type="submit" value="Search" class="btn btn-success" />
     </div>
-</form>
+</form>-->
+
 
 <div th:replace="fragments :: footer"></div>
 
