@@ -10,28 +10,51 @@
 </head>
 <body>
 <div th:replace="fragments :: page-header"></div>
-<form method="post" th:action="@{search/byIngredientResults}">
-    <h1>Enjoy your Cocktail!</h1>
-    <div class="form-group">
-        <label>Your Search Results
-            <p th:text="${search}"> </p>
+<!--<form method="post" th:action="@{search/byIngredientResults}">-->
+<!--    <h1>Enjoy your Cocktail!</h1>-->
+<!--    <div class="form-group">-->
+<!--        <label>Your Search Results-->
+<!--            <p th:text="${search}"> </p>-->
 
-        </label>
-<!--        <p th:text="${response}"> </p>-->
-<!--        <p class="error" th:errors="${search}"></p>-->
-        <div class="search-results">
-            <div th:each="cocktail: ${drinksArray}" class="search-result" th:id="${cocktail.idDrink}">
-                <img th:src="${cocktail.strDrinkThumb}">
-                <h2 th:text="${cocktail.strDrink}"></h2>
-<!--                <p th:text="${cocktail.strInstructions}"></p>-->
+<!--        </label>-->
+<!--&lt;!&ndash;        <p th:text="${response}"> </p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p class="error" th:errors="${search}"></p>&ndash;&gt;-->
+<!--        <div class="search-results">-->
+<!--            <div th:each="cocktail: ${drinksArray}" class="search-result" th:id="${cocktail.idDrink}">-->
+<!--                <img th:src="${cocktail.strDrinkThumb}">-->
+<!--                <h2 th:text="${cocktail.strDrink}"></h2>-->
+<!--&lt;!&ndash;                <p th:text="${cocktail.strInstructions}"></p>&ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <div class="container">
+        <div class="intro">
+            <h2 class="text-center">Results</h2>
+        </div>
+        <div class="row photos">
+            <div th:each="cocktail: ${drinksArray}" th:id="${cocktail.idDrink}">
+
+                <div class="col-sm-6 col-md-4 col-lg-3 item">
+
+                    <img class="img-fluid" th:src="${cocktail.strDrinkThumb}">
+
+
+                    <a th:href="@{/search/recipe(cocktailId=${cocktail.idDrink})}">
+                        <h3 th:text="${cocktail.strDrink}"></h3>
+                    </a>
+
+
+                </div>
+
             </div>
         </div>
     </div>
 
 
-
-
-</form>
+<!--</form>-->
 
 
 <div th:replace="fragments :: footer"></div>
