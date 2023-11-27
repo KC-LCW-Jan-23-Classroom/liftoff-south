@@ -182,9 +182,38 @@ public class SearchController {
         return "search/randomGeneratorResults";
     }
 
-//    @PostMapping("/randomCocktailGenerator")
-//    public String randomCocktailGenerator (@ModelAttribute Search search, Errors errors, Model model) {
-//        return "index";
-//    }
+    @GetMapping("/recipe")
+    public String displayRecipe(@RequestParam String cocktailId, Model model) throws IOException, InterruptedException {
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        String encodedId = URLEncoder.encode(cocktailId, StandardCharsets.UTF_8);
+        String url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + encodedId;
+        System.out.println("Request URL: " + url);
+        System.out.println("ID: " + encodedId);
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .build();
+
+        HttpResponse<String> response =
+                client.send(request, HttpResponse.BodyHandlers.ofString());
+        String responseString = response.body().toString();
+        // Map JSON string to an object
+        ObjectMapper mapper = new ObjectMapper();
+        Map<String, Object> map = mapper.readValue(response.body(), Map.class);
+
+        // the API returns an object containing an array with a key of "drinks".
+        // So get the value for "drinks", and cast it to an ArrayList so that we can iterate over the drinks.
+        ArrayList drinksArray = (ArrayList) map.get("drinks");
+
+
+        model.addAttribute("drinksArray", drinksArray);
+        model.addAttribute("cocktailId", cocktailId);
+
+
+        // Pass a list of drinks to the template
+        System.out.println(response.body());
+        return "search/recipe";
+    }
 
 }

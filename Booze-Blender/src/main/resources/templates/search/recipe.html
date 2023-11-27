@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
+<head th:replace="fragments :: head">
+
+</head>
+<body>
+<div th:replace="fragments :: page-header"></div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+<div class="container">
+  <div class="intro">
+
+    <h2 class="text-center">Recipe:</h2>
+  </div>
+  <div class="row photos">
+    <div th:each="cocktail: ${drinksArray}" th:id="${cocktail.idDrink}">
+      <div class="col-sm-6 col-md-4 col-lg-3 item">
+        <img class="img-fluid" th:src="${cocktail.strDrinkThumb}">
+
+        <a th:href="@{search/recipe(cocktailId=${cocktail.idDrink})}" ></a>
+
+
+
+        <h3 th:text="${cocktail.strDrink}" ></h3>
+
+        <h3>Ingredients:</h3>
+        <ul>
+
+          <li th:if="${cocktail.strMeasure1 != null and cocktail.strIngredient1 != null}"
+              th:text="${cocktail.strMeasure1 + ' ' + cocktail.strIngredient1}">
+
+          <li th:if="${cocktail.strMeasure2 != null and cocktail.strIngredient2 != null}"
+              th:text="${cocktail.strMeasure2 + ' ' + cocktail.strIngredient2}">
+
+          <li th:if="${cocktail.strMeasure3 != null and cocktail.strIngredient3 != null}"
+              th:text="${cocktail.strMeasure3 + ' ' + cocktail.strIngredient3}">
+
+          <li th:if="${cocktail.strMeasure4 != null and cocktail.strIngredient4 != null}"
+              th:text="${cocktail.strMeasure4 + ' ' + cocktail.strIngredient4}">
+
+          <li th:if="${cocktail.strMeasure5 != null and cocktail.strIngredient5 != null}"
+              th:text="${cocktail.strMeasure5 + ' ' + cocktail.strIngredient5}">
+
+          <li th:if="${cocktail.strMeasure6 != null and cocktail.strIngredient6 != null}"
+              th:text="${cocktail.strMeasure6 + ' ' + cocktail.strIngredient6}">
+
+          <li th:if="${cocktail.strMeasure7 != null and cocktail.strIngredient7 != null}"
+              th:text="${cocktail.strMeasure7 + ' ' + cocktail.strIngredient7}">
+
+          <li th:if="${cocktail.strMeasure8 != null and cocktail.strIngredient8 != null}"
+              th:text="${cocktail.strMeasure8 + ' ' + cocktail.strIngredient8}">
+
+          <li th:if="${cocktail.strMeasure9 != null and cocktail.strIngredient9 != null}"
+              th:text="${cocktail.strMeasure9 + ' ' + cocktail.strIngredient9}">
+        </ul>
+
+        <h3>Instructions: </h3>
+        <h4 th:text="${cocktail.strInstructions}"> </h4>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+
+<div th:replace="fragments :: footer"></div>
+
+</html>
