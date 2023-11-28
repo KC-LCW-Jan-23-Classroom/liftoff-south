@@ -96,6 +96,26 @@ public class ProfileController {
             return "redirect:/login";
         }
     }
+//        @PostMapping("/edit")
+//        public String processEditProfile (@ModelAttribute User updatedUser, HttpSession session){
+//            // Validate and update user information in the database
+//            User existingUser = userRepository.findById(updatedUser.getId()).orElse(null);
+//
+//            if (existingUser != null) {
+//                // Update user information (handle validation as needed)
+//                existingUser.setEmail(updatedUser.getEmail());
+//                existingUser.setBirthday(updatedUser.getBirthday());
+//                // Update other user-related attributes as needed
+//
+//                // Save the updated user
+//                userRepository.save(existingUser);
+//
+//                return "redirect:/user/profile";
+//            } else {
+//                // User not found, handle accordingly
+//                return "redirect:/login";
+//            }
+//        }
 
     @PostMapping("/edit")
     public String processEditProfile(@ModelAttribute User editedUser, HttpSession session, Model model) {
