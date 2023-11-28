@@ -3,7 +3,7 @@ form{
     width: 20%;
     padding: 10px;
     text-align: center;
-    background-color: white;
+    background-color: #222;
 }
 
 h1 {
@@ -11,7 +11,7 @@ h1 {
     width: 50%;
     padding: 10px;
     text-align: center;
-    background-color: white;
+    background-color: #222;
 }
 
 table {
