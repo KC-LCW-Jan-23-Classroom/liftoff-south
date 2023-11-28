@@ -22,21 +22,7 @@ public class ProfileController {
     @Autowired
     private AuthenticationController authenticationController;
 
-//    @GetMapping("/profile")
-//    public String displayProfileFrom(Model model ){
-//         model.addAttribute(new User());
-//        return "user/profile";
-//    }
 
-//    @GetMapping("/edit")
-//    public String displayEditProfile(Model model, User user) {
-//
-//        model.addAttribute("email", user.getEmail());
-////        model.addAttribute("password", user.getPassword());
-//        model.addAttribute("birthday",user.getBirthday());
-////        model.addAttribute("address",user.getAddress());
-//        return "user/edit";
-//    }
 
     @GetMapping("/profile")
     public String displayProfile(Model model, HttpSession session) {
@@ -59,24 +45,7 @@ public class ProfileController {
         }
     }
 
-//    @GetMapping("/edit")
-//    public String displayEditProfile(Model model, HttpSession session) {
-//        User user = authenticationController.getUserFromSession(session);
-//
-//        if (user != null) {
-//            // Retrieve additional user information from the database
-//            User fullUser = userRepository.findById(user.getId()).orElse(null);
-//
-//            // Add user data to the model for the view
-//            model.addAttribute("email", fullUser.getEmail());
-//            model.addAttribute("birthday", fullUser.getBirthday());
-//            // Add other user-related attributes as needed
-//
-//            return "user/edit";
-//        } else {
-//            // User is not logged in, handle accordingly (redirect to login, show an error message, etc.)
-//            return "redirect:/login";
-//        }
+
 
 
     @GetMapping("/edit")
@@ -96,26 +65,7 @@ public class ProfileController {
             return "redirect:/login";
         }
     }
-//        @PostMapping("/edit")
-//        public String processEditProfile (@ModelAttribute User updatedUser, HttpSession session){
-//            // Validate and update user information in the database
-//            User existingUser = userRepository.findById(updatedUser.getId()).orElse(null);
-//
-//            if (existingUser != null) {
-//                // Update user information (handle validation as needed)
-//                existingUser.setEmail(updatedUser.getEmail());
-//                existingUser.setBirthday(updatedUser.getBirthday());
-//                // Update other user-related attributes as needed
-//
-//                // Save the updated user
-//                userRepository.save(existingUser);
-//
-//                return "redirect:/user/profile";
-//            } else {
-//                // User not found, handle accordingly
-//                return "redirect:/login";
-//            }
-//        }
+
 
     @PostMapping("/edit")
     public String processEditProfile(@ModelAttribute User editedUser, HttpSession session, Model model) {
@@ -138,4 +88,24 @@ public class ProfileController {
         // Redirect to the profile page
         return "redirect:/user/profile";
     }
+
+    @GetMapping("/delete")
+    public String displayDeleteConfirmation() {
+        return "user/delete";
+    }
+
+    @PostMapping("/delete")
+    public String processDeleteAccount(HttpSession session) {
+        User user = authenticationController.getUserFromSession(session);
+
+        if (user != null) {
+            userRepository.deleteById(user.getId());
+            session.invalidate();  // Log the user out after deletion
+            return "redirect:/";  // Redirect to the home page or login page
+        } else {
+
+        }
+        return "redirect:/login"; // Redirect to login page after deletion
+    }
+
 }
