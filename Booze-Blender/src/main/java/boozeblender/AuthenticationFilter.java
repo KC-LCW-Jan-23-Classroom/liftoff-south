@@ -16,10 +16,10 @@ import java.util.List;
 public class AuthenticationFilter extends HandlerInterceptorAdapter {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    AuthenticationController authenticationController;
+    private AuthenticationController authenticationController;
 
     private static final List<String> whitelist = Arrays.asList("/login", "/register", "/logout", "/css");
 
@@ -41,10 +41,15 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
 
         // The user is logged in
         if (user != null) {
+            request.setAttribute("loggedIn", true);
+            request.setAttribute("username", user.getUsername());
+            request.setAttribute("email", user.getEmail());
+            request.setAttribute("birthday", user.getBirthday());
             return true;
         }
 
         // The user is NOT logged in
+        request.setAttribute("loggedIn", false);
         response.sendRedirect("/login");
         return false;
     }
