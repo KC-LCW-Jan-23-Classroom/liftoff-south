@@ -12,7 +12,7 @@
 <div class="container">
     <div class="intro">
 
-        <h2 th:text="${search} + ' Drinks:'" >Results:</h2>
+        <h2 th:text="${search} + ' Drinks:'" >Results:</h2><br>
     </div>
     <div class="row photos">
         <div th:each="cocktail: ${drinksArray}" class="search-result" th:id="${cocktail.idDrink}">
